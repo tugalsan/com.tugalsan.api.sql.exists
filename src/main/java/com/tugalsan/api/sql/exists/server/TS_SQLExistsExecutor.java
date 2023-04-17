@@ -25,7 +25,7 @@ public class TS_SQLExistsExecutor {
         return sb.toString();
     }
 
-    public boolean execute() {
+    public boolean run() {
         TGS_Pack1<Long> pack = new TGS_Pack1(-1);
         TS_SQLSelectStmtUtils.select(anchor, toString(), fillStmt -> {
             if (where != null) {
