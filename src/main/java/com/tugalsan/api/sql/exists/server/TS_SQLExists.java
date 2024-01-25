@@ -12,7 +12,7 @@ public class TS_SQLExists {
     public TS_SQLExists(TS_SQLConnAnchor anchor, CharSequence tableName) {
         executor = new TS_SQLExistsExecutor(anchor, tableName);
     }
-    private TS_SQLExistsExecutor executor;
+    private final TS_SQLExistsExecutor executor;
 
     public boolean whereGroupAnd(TGS_RunnableType1<TS_SQLWhereGroups> groups) {
         executor.where = TS_SQLWhereUtils.where();
