@@ -1,6 +1,7 @@
 package com.tugalsan.api.sql.exists.server;
 
-import com.tugalsan.api.runnable.client.TGS_RunnableType1;
+
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
 import com.tugalsan.api.sql.conn.server.TS_SQLConnAnchor;
 import com.tugalsan.api.sql.conn.server.TS_SQLConnColUtils;
 import com.tugalsan.api.sql.where.server.TS_SQLWhereConditions;
@@ -14,23 +15,23 @@ public class TS_SQLExists {
     }
     private final TS_SQLExistsExecutor executor;
 
-    public boolean whereGroupAnd(TGS_RunnableType1<TS_SQLWhereGroups> groups) {
+    public boolean whereGroupAnd(TGS_CallableType1Void<TS_SQLWhereGroups> groups) {
         executor.where = TS_SQLWhereUtils.where();
         executor.where.groupsAnd(groups);
         return executor.run();
     }
 
-    public boolean whereGroupOr(TGS_RunnableType1<TS_SQLWhereGroups> groups) {
+    public boolean whereGroupOr(TGS_CallableType1Void<TS_SQLWhereGroups> groups) {
         executor.where = TS_SQLWhereUtils.where();
         executor.where.groupsOr(groups);
         return executor.run();
     }
 
-    public boolean whereConditionAnd(TGS_RunnableType1<TS_SQLWhereConditions> conditions) {
+    public boolean whereConditionAnd(TGS_CallableType1Void<TS_SQLWhereConditions> conditions) {
         return whereGroupAnd(where -> where.conditionsAnd(conditions));
     }
 
-    public boolean whereConditionOr(TGS_RunnableType1<TS_SQLWhereConditions> conditions) {
+    public boolean whereConditionOr(TGS_CallableType1Void<TS_SQLWhereConditions> conditions) {
         return whereGroupOr(where -> where.conditionsOr(conditions));
     }
 
