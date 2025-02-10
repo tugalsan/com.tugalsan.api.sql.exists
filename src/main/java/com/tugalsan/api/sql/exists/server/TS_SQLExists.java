@@ -1,7 +1,7 @@
 package com.tugalsan.api.sql.exists.server;
 
 
-import com.tugalsan.api.function.client.TGS_Func_In1;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
 import com.tugalsan.api.sql.conn.server.TS_SQLConnAnchor;
 import com.tugalsan.api.sql.conn.server.TS_SQLConnColUtils;
 import com.tugalsan.api.sql.where.server.TS_SQLWhereConditions;
@@ -15,23 +15,23 @@ public class TS_SQLExists {
     }
     private final TS_SQLExistsExecutor executor;
 
-    public boolean whereGroupAnd(TGS_Func_In1<TS_SQLWhereGroups> groups) {
+    public boolean whereGroupAnd(TGS_FuncMTUCE_In1<TS_SQLWhereGroups> groups) {
         executor.where = TS_SQLWhereUtils.where();
         executor.where.groupsAnd(groups);
         return executor.run();
     }
 
-    public boolean whereGroupOr(TGS_Func_In1<TS_SQLWhereGroups> groups) {
+    public boolean whereGroupOr(TGS_FuncMTUCE_In1<TS_SQLWhereGroups> groups) {
         executor.where = TS_SQLWhereUtils.where();
         executor.where.groupsOr(groups);
         return executor.run();
     }
 
-    public boolean whereConditionAnd(TGS_Func_In1<TS_SQLWhereConditions> conditions) {
+    public boolean whereConditionAnd(TGS_FuncMTUCE_In1<TS_SQLWhereConditions> conditions) {
         return whereGroupAnd(where -> where.conditionsAnd(conditions));
     }
 
-    public boolean whereConditionOr(TGS_Func_In1<TS_SQLWhereConditions> conditions) {
+    public boolean whereConditionOr(TGS_FuncMTUCE_In1<TS_SQLWhereConditions> conditions) {
         return whereGroupOr(where -> where.conditionsOr(conditions));
     }
 
