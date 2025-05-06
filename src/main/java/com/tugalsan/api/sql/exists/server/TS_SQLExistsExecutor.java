@@ -9,7 +9,7 @@ public class TS_SQLExistsExecutor {
 
     public TS_SQLExistsExecutor(TS_SQLConnAnchor anchor, CharSequence tableName) {
         this.anchor = anchor;
-        this.tableName = tableName; 
+        this.tableName = tableName;
     }
     final public TS_SQLConnAnchor anchor;
     final public CharSequence tableName;
@@ -18,7 +18,7 @@ public class TS_SQLExistsExecutor {
 
     @Override
     public String toString() {
-        var sb = new StringBuilder("SELECT COUNT(*) ").append(" FROM ").append(tableName);
+        var sb = new StringBuilder(anchor.tagSelectAndSpace()).append("COUNT(*) ").append(" FROM ").append(tableName);
         if (where != null) {
             sb.append(" ").append(where);
         }
