@@ -1,9 +1,9 @@
 package com.tugalsan.api.sql.exists.server;
 
-import com.tugalsan.api.tuple.client.TGS_Tuple1;
-import com.tugalsan.api.sql.conn.server.TS_SQLConnAnchor;
-import com.tugalsan.api.sql.select.server.TS_SQLSelectStmtUtils;
-import com.tugalsan.api.sql.where.server.TS_SQLWhere;
+import module com.tugalsan.api.tuple;
+import module com.tugalsan.api.sql.conn;
+import module com.tugalsan.api.sql.select;
+import module com.tugalsan.api.sql.where;
 
 public class TS_SQLExistsExecutor {
 
